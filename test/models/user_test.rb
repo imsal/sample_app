@@ -16,7 +16,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "name should be present" do
     @user.name = "      "
-    assert_not @user.valid?
+    assert_not @user.valid?#, "Name is not present!!!"
   end
 
   test "email should be present" do
@@ -72,7 +72,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "password should have a minimum length" do
-    @user.password = @user.password_confirmation = "a" * 5
+    @user.password = @user.password_confirmation = "a" * 4
     assert_not @user.valid?
   end
 
